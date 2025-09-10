@@ -68,5 +68,5 @@ while(no>0){
   no ~/= 10;
 
 }
-print(rev);
+print('Reverse digit is $rev');
 }
