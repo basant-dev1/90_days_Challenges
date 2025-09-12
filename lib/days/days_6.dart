@@ -65,32 +65,87 @@
 // }
 
 
-class Person {
-  String name;
-  int age;
+// class Person {
+//   String name;
+//   int age;
+//
+//   Person(this.name,this.age);
+// }
+//
+// class Teacher extends Person{
+//   String subject;
+//   Teacher(String name, int age , this.subject) : super(name,age);
+//   void tech(){
+//     print("Teacher Name :- $name , Age :- $age and Subject :- $subject");
+//   }
+// }
+//
+// class Student extends Teacher{
+//   double grade = 0.0;
+// Student(String name , int age ,String subject, this.grade) : super(name,age,subject);
+// String study(){
+//     return "Student Name :- $name , age :- $age and Grade :- $grade";
+//   }
+// }
+//
+// void main(){
+// Teacher t1 = Teacher("rahul", 35, "math");
+// t1.tech();
+// Student s1 = Student("raj", 21, "eng", 210.0);
+// print(s1.study());
+// }
 
-  Person(this.name,this.age);
-}
-
-class Teacher extends Person{
-  String subject;
-  Teacher(String name, int age , this.subject) : super(name,age);
-  void tech(){
-    print("Teacher Name :- $name , Age :- $age and Subject :- $subject");
+class Student{
+  String name = "";
+  int roll = 0;
+  double grade = 0;
+  Student(this.name,this.roll,this.grade);
+  void display(){
+    print("Student Name :- $name , Roll number :- $roll and Grade :- $grade");
   }
 }
 
-class Student extends Teacher{
-  double grade = 0.0;
-Student(String name , int age ,String subject, this.grade) : super(name,age,subject);
-String study(){
-    return "Student Name :- $name , age :- $age and Grade :- $grade";
+class studentManagement{
+
+  List<Student> students = [];
+
+  void addStudent(Student student){
+    students.add(student);
+    print("Student Added Successfully");
   }
+
+  void displayAll(){
+    if(students.isEmpty){
+      print("Student List is empty");
+    }else{
+      print("------Students List------");
+      for(var student in students){
+        student.display();
+      }
+    }
+  }
+
+  void searchStudent(int roll){
+    bool found = false;
+    for (var student in students){
+      if(student.roll == roll){
+        print("Students Found ");
+        student.display();
+        found =true;
+        break;
+      }
+    }
+    if(!found){
+      print("Student with roll no $roll not found");
+    }
+}
+
 }
 
 void main(){
-Teacher t1 = Teacher("rahul", 35, "math");
-t1.tech();
-Student s1 = Student("raj", 21, "eng", 210.0);
-print(s1.study());
+  var sms = studentManagement();
+  sms.addStudent(Student("basant", 210, 210.0));
+  sms.addStudent(Student("rahul", 111, 140.0));
+  sms.displayAll();
+  sms.searchStudent(111);
 }
