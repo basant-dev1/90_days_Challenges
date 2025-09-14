@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
+
+  //Declare Route Name
+  static const String routeName = "MyApp";
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
